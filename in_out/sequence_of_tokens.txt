@@ -1,0 +1,22 @@
+In this language, use ff as if, and gg as goto. 
+This language only uses letter: a,b,c,d,e,f,g, uses numbers 0 and 1. 
+And the calculator +, symbol ',', ';'etc.. 
+Others are identifier consisted with these seven letters. 
+(id,de)
+(=, symbol)
+(;, symbol)
+(id,a)
+(=, symbol)
+(;, symbol)
+(ff, reserve)
+(id,de)
+(,, symbol)
+(id,a)
+(=, symbol)
+(;, symbol)
+(ff, reserve)
+(id,de)
+(,, symbol)
+(gg, reserve)
+(id,a)
+(;, symbol)

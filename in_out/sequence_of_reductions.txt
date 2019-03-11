@@ -1,0 +1,50 @@
+The syntax is:
+(The syntax use i-id, f-ff, g-gg, c-constant)
+W->S
+S->i = A; S
+S->fA, S
+S->gA; S
+S->$
+A->i
+A->c
+A->c + c
+A->c + i
+A->i + i
+A->i + c
+Sequence of reductions: 
+$                             i=c;i=c;fi,i=c;fi,gi;$        action[0,1]=1
+$i                            =c;i=c;fi,i=c;fi,gi;$         action[1,7]=6
+$i=                           c;i=c;fi,i=c;fi,gi;$          action[6,6]=11
+$i=c                          ;i=c;fi,i=c;fi,gi;$           A->c
+$i=A                          ;i=c;fi,i=c;fi,gi;$           action[13,8]=20
+$i=A;                         i=c;fi,i=c;fi,gi;$            action[20,1]=1
+$i=A;i                        =c;fi,i=c;fi,gi;$             action[1,7]=6
+$i=A;i=                       c;fi,i=c;fi,gi;$              action[6,6]=11
+$i=A;i=c                      ;fi,i=c;fi,gi;$               A->c
+$i=A;i=A                      ;fi,i=c;fi,gi;$               action[13,8]=20
+$i=A;i=A;                     fi,i=c;fi,gi;$                action[20,2]=2
+$i=A;i=A;f                    i,i=c;fi,gi;$                 action[2,1]=7
+$i=A;i=A;fi                   ,i=c;fi,gi;$                  A->i
+$i=A;i=A;fA                   ,i=c;fi,gi;$                  action[9,5]=16
+$i=A;i=A;fA,                  i=c;fi,gi;$                   action[16,1]=1
+$i=A;i=A;fA,i                 =c;fi,gi;$                    action[1,7]=6
+$i=A;i=A;fA,i=                c;fi,gi;$                     action[6,6]=11
+$i=A;i=A;fA,i=c               ;fi,gi;$                      A->c
+$i=A;i=A;fA,i=A               ;fi,gi;$                      action[13,8]=20
+$i=A;i=A;fA,i=A;              fi,gi;$                       action[20,2]=2
+$i=A;i=A;fA,i=A;f             i,gi;$                        action[2,1]=7
+$i=A;i=A;fA,i=A;fi            ,gi;$                         A->i
+$i=A;i=A;fA,i=A;fA            ,gi;$                         action[9,5]=16
+$i=A;i=A;fA,i=A;fA,           gi;$                          action[16,3]=3
+$i=A;i=A;fA,i=A;fA,g          i;$                           action[3,1]=10
+$i=A;i=A;fA,i=A;fA,gi         ;$                            A->i
+$i=A;i=A;fA,i=A;fA,gA         ;$                            action[12,8]=19
+$i=A;i=A;fA,i=A;fA,gA;        $                             action[19,9]=4
+$i=A;i=A;fA,i=A;fA,gA;$                                     S->$
+$i=A;i=A;fA,i=A;fA,gA;S                                     S->gA;S
+$i=A;i=A;fA,i=A;fA,S                                        S->fA,S
+$i=A;i=A;fA,i=A;S                                           S->i=A;S
+$i=A;i=A;fA,S                                               S->fA,S
+$i=A;i=A;S                                                  S->i=A;S
+$i=A;S                                                      S->i=A;S
+$S                                                          acc! 

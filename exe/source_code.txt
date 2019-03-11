@@ -1,0 +1,7 @@
+// In this language, use ff as if, and gg as goto
+// This language only uses letter: a,b,c,d,e,f,g, uses numbers 0 and1
+de = 0 ; 
+a = 1 ; 
+ff  de , a = 0 ; 
+ff  de , gg a ; 
+$
